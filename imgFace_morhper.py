@@ -61,24 +61,17 @@ def morph_triangle(img1, img2, img, tri1, tri2, tri, alpha):  # 三角形變形�
     tri_rect_warped = []
 
     for i in range(0, 3):
-        tri_rect_warped.append(
-            ((tri[i][0] - rect[0]), (tri[i][1] - rect[1])))
-        tri_rect1.append(
-            ((tri1[i][0] - rect1[0]), (tri1[i][1] - rect1[1])))
-        tri_rect2.append(
-            ((tri2[i][0] - rect2[0]), (tri2[i][1] - rect2[1])))
+        tri_rect_warped.append(((tri[i][0] - rect[0]), (tri[i][1] - rect[1])))
+        tri_rect1.append(((tri1[i][0] - rect1[0]), (tri1[i][1] - rect1[1])))
+        tri_rect2.append(((tri2[i][0] - rect2[0]), (tri2[i][1] - rect2[1])))
 
     # 在邊界框內進行仿射變換
-    img1_rect = img1[rect1[1]:rect1[1] +
-                     rect1[3], rect1[0]:rect1[0] + rect1[2]]
-    img2_rect = img2[rect2[1]:rect2[1] +
-                     rect2[3], rect2[0]:rect2[0] + rect2[2]]
+    img1_rect = img1[rect1[1]:rect1[1] + rect1[3], rect1[0]:rect1[0] + rect1[2]]
+    img2_rect = img2[rect2[1]:rect2[1] + rect2[3], rect2[0]:rect2[0] + rect2[2]]
 
     size = (rect[2], rect[3])
-    warped_img1 = affine_transform(
-        img1_rect, tri_rect1, tri_rect_warped, size)
-    warped_img2 = affine_transform(
-        img2_rect, tri_rect2, tri_rect_warped, size)
+    warped_img1 = affine_transform(img1_rect, tri_rect1, tri_rect_warped, size)
+    warped_img2 = affine_transform(img2_rect, tri_rect2, tri_rect_warped, size)
 
     # 加權求和
     img_rect = (1.0 - alpha) * warped_img1 + alpha * warped_img2
@@ -89,8 +82,7 @@ def morph_triangle(img1, img2, img, tri1, tri2, tri, alpha):  # 三角形變形�
 
     # 應用模板
     img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]] = \
-        img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] +
-            rect[2]] * (1 - mask) + img_rect * mask
+        img[rect[1]:rect[1] + rect[3], rect[0]:rect[0] + rect[2]] * (1 - mask) + img_rect * mask
 
 
 def morph_faces(filename1, filename2, alpha=0.5):  # 融合圖片

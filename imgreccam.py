@@ -83,7 +83,7 @@ while(cap.isOpened()):
         x2 = d.right()
         y2 = d.bottom()
         # 以方框標示偵測的人臉
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 4, cv2.LINE_AA)
+        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2, cv2.LINE_AA)
 
         # 計算歐式距離
         for i in descriptors:

@@ -83,7 +83,7 @@ while(cap.isOpened()):
         x2 = d.right()
         y2 = d.bottom()
         # 以方框標示偵測的人臉
-        cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2, cv2.LINE_AA)
+        # cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2, cv2.LINE_AA)
 
         # 計算歐式距離
         for i in descriptors:
@@ -100,9 +100,13 @@ while(cap.isOpened()):
         if cd_sorted[0][1] < 0.4 :
             # 取得最短距離就為辨識出的人名
             rec_name = cd_sorted[0][0]
+            # 以方框標示偵測的人臉
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 255, 0), 2, cv2.LINE_AA)
             print(c_d)
         else:
             rec_name = ''
+            # 以方框標示偵測的人臉
+            cv2.rectangle(img, (x1, y1), (x2, y2), (0, 0, 255), 2, cv2.LINE_AA)
 
         # 將辨識出的人名印到圖片上面
         cv2.putText(img, rec_name, (x1, y1), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)

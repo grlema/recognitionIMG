@@ -1,4 +1,4 @@
-#與Arduino的心律測試專案
+# 與Arduino的心律測試專案
 
 imgHeartRate.py單純camera讀心律脈動 - matplotlib.pyplot
 
@@ -6,11 +6,11 @@ pulsesenser_1dot1.py由serial port讀取Arduino的心律資料,採matplotlib.pyp
 
 pulsesensor_wave.py由serial port讀取Arduino的心律資料,採pyqtgraph.Qt繪製
 
-#影像辨識人臉與骨幹的練習範例
+# 影像辨識人臉與骨幹的練習範例
 
 img-2-body.py 引用Openpose COCO/MPII/HAND等模式
 
-##參考： 
+## 參考： 
 
 [Deep Learning based Human Pose Estimation using OpenCV ( C++ / Python )](https://www.learnopencv.com/deep-learning-based-human-pose-estimation-using-opencv-cpp-python/)
 

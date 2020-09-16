@@ -30,4 +30,3 @@ img-2-body.py 引用Openpose COCO/MPII/HAND等模式
 
 [Python OpenCV提取彩色图像三通道](https://hlthu.github.io/opencv/2016/06/04/python-opencv-3.html)
 
-
